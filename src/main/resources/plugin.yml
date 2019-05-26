@@ -15,8 +15,32 @@ commands:
       - bcmds
       - bcmd
       - bc
+  listbiomes:
+    description: See visited biomes
+    usage: /<command>
+    aliases:
+      - biomes
+  listfoods:
+    description: See foods eaten
+    usage: /<command>
+    aliases:
+      - foods
+  listmobs:
+    description: See mobs killed
+    usage: /<command>
+    aliases:
+      - mobs
 
 permissions:
   command.basiccommands:
     description: Allows to reload the configs
+    default: op
+  command.listbiomes:
+    description: Allows to list visited biomes
+    default: op
+  command.listfoods:
+    description: Allows to list foods eaten
+    default: op
+  command.listmobs:
+    description: Allows to list mobs killed
     default: op

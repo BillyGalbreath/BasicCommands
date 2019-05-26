@@ -24,7 +24,6 @@ public class Config {
      */
     public static void reload() {
         BasicCommands plugin = BasicCommands.getInstance();
-        plugin.saveDefaultConfig();
         File configFile = new File(plugin.getDataFolder(), "config.yml");
         config = new YamlConfiguration();
         try {

@@ -16,9 +16,21 @@ public class Lang {
     public static String COMMAND_NO_PERMISSION = "&4You do not have permission for that command!";
     public static String PLAYER_COMMAND = "&4This command is only available to players!";
 
+    public static String ADVANCEMENT_NOT_FOUND = "&4Advancement not found ({advancement})";
+
+    public static String BIOMES_LIST = "&3Advancement &dAdventuring Time &3Progress&e:\n{list}";
+    public static String FOODS_LIST = "&3Advancement &dA Balanced Diet &3Progress&e:\n{list}";
+    public static String MOBS_LIST = "&3Advancement &dMonster Hunter &3Progress&e:\n{list}";
+
     private static void init() {
         COMMAND_NO_PERMISSION = getString("command-no-permission", COMMAND_NO_PERMISSION);
         PLAYER_COMMAND = getString("player-command", PLAYER_COMMAND);
+
+        ADVANCEMENT_NOT_FOUND = getString("advancement-not-found", ADVANCEMENT_NOT_FOUND);
+
+        BIOMES_LIST = getString("biomes-list", BIOMES_LIST);
+        FOODS_LIST = getString("foods-list", FOODS_LIST);
+        MOBS_LIST = getString("mobs-list", MOBS_LIST);
     }
 
     // ############################  DO NOT EDIT BELOW THIS LINE  ############################
