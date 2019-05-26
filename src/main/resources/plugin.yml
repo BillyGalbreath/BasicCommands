@@ -1,0 +1,22 @@
+name: "${project.artifactId}"
+main: "${project.groupId}.${project.artifactId}"
+version: "${project.version}"
+description: "${project.artifactId} Bukkit Plugin"
+author: "BillyGalbreath"
+api-version: "1.13"
+
+commands:
+  basiccommands:
+    description: Reload the configs
+    usage: /<command> (reload)
+    aliases:
+      - basiccmds
+      - basiccmd
+      - bcmds
+      - bcmd
+      - bc
+
+permissions:
+  command.basiccommands:
+    description: Allows to reload the configs
+    default: op
