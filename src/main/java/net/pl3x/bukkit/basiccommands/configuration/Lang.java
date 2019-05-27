@@ -7,6 +7,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Player;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,6 +22,8 @@ public class Lang {
     public static String BIOMES_LIST = "&3Advancement &dAdventuring Time &3Progress&e:\n{list}";
     public static String FOODS_LIST = "&3Advancement &dA Balanced Diet &3Progress&e:\n{list}";
     public static String MOBS_LIST = "&3Advancement &dMonster Hunter &3Progress&e:\n{list}";
+
+    public static String TPS_BAR = "&eTPS&3: {tps}";
 
     private static void init() {
         COMMAND_NO_PERMISSION = getString("command-no-permission", COMMAND_NO_PERMISSION);
@@ -91,6 +94,21 @@ public class Lang {
         for (String part : colorize(message).split("\n")) {
             Bukkit.getOnlinePlayers().forEach(recipient -> recipient.sendMessage(part));
             Bukkit.getConsoleSender().sendMessage(part);
+        }
+    }
+
+    /**
+     * Sends a message above a player's action bar
+     *
+     * @param player  Recipient of message
+     * @param message Message to send
+     */
+    public static void sendActionBar(Player player, String message) {
+        if (player != null && player.isOnline()) {
+            message = colorize(message);
+            if (!message.isEmpty()) {
+                player.sendActionBar(message);
+            }
         }
     }
 

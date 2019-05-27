@@ -30,6 +30,9 @@ commands:
     usage: /<command>
     aliases:
       - mobs
+  tpsbar:
+    description: Toggle tps output above your hotbar
+    usage: /<command>
 
 permissions:
   command.basiccommands:
@@ -43,4 +46,7 @@ permissions:
     default: op
   command.listmobs:
     description: Allows to list mobs killed
+    default: op
+  command.tpsbar:
+    description: Allows to toggle tps bar
     default: op
