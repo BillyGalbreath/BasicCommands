@@ -40,7 +40,7 @@ public class TPSBarTask extends BukkitRunnable {
             color = "&c";
         }
 
-        String message = color + tps;
+        String message = color + String.format("%.2f", tps);
 
         for (Player player : players) {
             Lang.sendActionBar(player, Lang.TPS_BAR
