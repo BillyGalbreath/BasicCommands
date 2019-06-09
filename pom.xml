@@ -9,20 +9,19 @@
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <dir>${project.build.directory}</dir>
     </properties>
     <dependencies>
         <dependency>
-            <groupId>com.destroystokyo.paper</groupId>
-            <artifactId>paper-api</artifactId>
-            <version>1.14.1-R0.1-SNAPSHOT</version>
+            <groupId>net.pl3x.purpur</groupId>
+            <artifactId>purpur-api</artifactId>
+            <version>1.14.2-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
     <repositories>
         <repository>
-            <id>paper-repo</id>
-            <url>https://papermc.io/repo/repository/maven-public/</url>
+            <id>purpur-repo</id>
+            <url>https://repo.pl3x.net/</url>
         </repository>
     </repositories>
     <build>
@@ -36,24 +35,6 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>2.3.1</version>
-                <configuration>
-                    <outputDirectory>${dir}</outputDirectory>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.10.3</version>
-                <configuration>
-                    <links>
-                        <link>https://ci.pl3x.net/job/Purpur/javadoc/</link>
-                    </links>
                 </configuration>
             </plugin>
         </plugins>

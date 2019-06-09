@@ -20,6 +20,11 @@ commands:
     usage: /<command>
     aliases:
       - biomes
+  listbreeds:
+    description: See animals bred
+    usage: /<command>
+    aliases:
+      - breeds
   listfoods:
     description: See foods eaten
     usage: /<command>
@@ -40,6 +45,9 @@ permissions:
     default: op
   command.listbiomes:
     description: Allows to list visited biomes
+    default: op
+  command.listbreeds:
+    description: Allows to list animals bred
     default: op
   command.listfoods:
     description: Allows to list foods eaten

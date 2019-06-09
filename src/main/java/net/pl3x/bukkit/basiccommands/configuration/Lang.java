@@ -20,6 +20,7 @@ public class Lang {
     public static String ADVANCEMENT_NOT_FOUND = "&4Advancement not found ({advancement})";
 
     public static String BIOMES_LIST = "&3Advancement &dAdventuring Time &3Progress&e:\n{list}";
+    public static String BREEDS_LIST = "&3Advancement &dTwo by Two &3Progress&e:\n{list}";
     public static String FOODS_LIST = "&3Advancement &dA Balanced Diet &3Progress&e:\n{list}";
     public static String MOBS_LIST = "&3Advancement &dMonster Hunter &3Progress&e:\n{list}";
 
@@ -32,6 +33,7 @@ public class Lang {
         ADVANCEMENT_NOT_FOUND = getString("advancement-not-found", ADVANCEMENT_NOT_FOUND);
 
         BIOMES_LIST = getString("biomes-list", BIOMES_LIST);
+        BREEDS_LIST = getString("breeds-list", BREEDS_LIST);
         FOODS_LIST = getString("foods-list", FOODS_LIST);
         MOBS_LIST = getString("mobs-list", MOBS_LIST);
     }

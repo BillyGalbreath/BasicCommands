@@ -35,7 +35,7 @@ public class CmdListMobs implements TabExecutor {
         Advancement advancement = Bukkit.getAdvancement(new NamespacedKey("minecraft", "adventure/kill_all_mobs"));
         if (advancement == null) {
             Lang.send(sender, Lang.ADVANCEMENT_NOT_FOUND
-                    .replace("{advancement}", "adventure/adventuring_time"));
+                    .replace("{advancement}", "adventure/kill_all_mobs"));
             return true;
         }
 

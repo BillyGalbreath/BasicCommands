@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class CmdListFoods implements TabExecutor {
+public class CmdListBreeds implements TabExecutor {
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
         return Collections.emptyList();
@@ -22,7 +22,7 @@ public class CmdListFoods implements TabExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (!sender.hasPermission("command.listfoods")) {
+        if (!sender.hasPermission("command.listbreeds")) {
             Lang.send(sender, Lang.COMMAND_NO_PERMISSION);
             return true;
         }
@@ -32,10 +32,10 @@ public class CmdListFoods implements TabExecutor {
             return true;
         }
 
-        Advancement advancement = Bukkit.getAdvancement(new NamespacedKey("minecraft", "husbandry/balanced_diet"));
+        Advancement advancement = Bukkit.getAdvancement(new NamespacedKey("minecraft", "husbandry/bred_all_animals"));
         if (advancement == null) {
             Lang.send(sender, Lang.ADVANCEMENT_NOT_FOUND
-                    .replace("{advancement}", "husbandry/balanced_diet"));
+                    .replace("{advancement}", "husbandry/bred_all_animals"));
             return true;
         }
 
@@ -48,12 +48,12 @@ public class CmdListFoods implements TabExecutor {
         Collections.sort(needed);
 
         StringBuilder sb = new StringBuilder();
-        for (Foods food : Foods.values()) {
+        for (Mobs mob : Mobs.values()) {
             if (sb.length() != 0) {
                 sb.append("&7, ");
             }
 
-            String name = food.name().toLowerCase();
+            String name = "minecraft:" + mob.name().toLowerCase();
             if (done.contains(name)) {
                 sb.append("&a");
             } else if (needed.contains(name)) {
@@ -62,57 +62,33 @@ public class CmdListFoods implements TabExecutor {
                 sb.append("&d");
             }
 
-            sb.append(food.getName());
+            sb.append(mob.getName());
         }
 
-        Lang.send(sender, Lang.FOODS_LIST
+        Lang.send(sender, Lang.BREEDS_LIST
                 .replace("{list}", sb));
         return true;
     }
 
-    public enum Foods {
-        APPLE("Apple"),
-        BAKED_POTATO("Baked Potato"),
-        BEEF("Raw Beef"),
-        BEETROOT("Beetroot"),
-        BEETROOT_SOUP("Beetroot Soup"),
-        BREAD("Bread"),
-        CARROT("Carrot"),
-        CHICKEN("Raw Chicken"),
-        CHORUS_FRUIT("Chorus Fruit"),
-        COD("Raw Cod"),
-        COOKED_BEEF("Steak"),
-        COOKED_CHICKEN("Cooked Chicken"),
-        COOKED_COD("Cooked Fish"),
-        COOKED_MUTTON("Cooked Mutton"),
-        COOKED_PORKCHOP("Cooked Porkchop"),
-        COOKED_RABBIT("Cooked Rabbit"),
-        COOKED_SALMON("Cooked Salmon"),
-        COOKIE("Cookie"),
-        DRIED_KELP("Dried Kelp"),
-        ENCHANTED_GOLDEN_APPLE("Golden Enchanted Apple"),
-        GOLDEN_APPLE("Golden Apple"),
-        GOLDEN_CARROT("Golden Carrot"),
-        MELON_SLICE("Melon Slice"),
-        MUSHROOM_STEW("Mushroom Stew"),
-        MUTTON("Raw Mutton"),
-        POISONOUS_POTATO("Poisonous Potato"),
-        PORKCHOP("Raw Porkchop"),
-        POTATO("Potato"),
-        PUFFERFISH("Pufferfish"),
-        PUMPKIN_PIE("Pumpkin Pie"),
-        RABBIT("Raw Rabbit"),
-        RABBIT_STEW("Rabbit Stew"),
-        ROTTEN_FLESH("Rotten Flesh"),
-        SALMON("Raw Salmon"),
-        SPIDER_EYE("Spider Eye"),
-        SUSPICIOUS_STEW("Suspicious Stew"),
-        SWEET_BERRIES("Sweet Berries"),
-        TROPICAL_FISH("Tropical Fish");
+    public enum Mobs {
+        CAT("Cat"),
+        CHICKEN("Chicken"),
+        COW("Cow"),
+        FOX("Fox"),
+        HORSE("Horse"),
+        LLAMA("Llama"),
+        MOOSHROOM("Mooshroom"),
+        OCELOT("Ocelot"),
+        PANDA("Panda"),
+        PIG("Pig"),
+        RABBIT("Rabbit"),
+        SHEEP("Sheep"),
+        WOLF("Wolf"),
+        TURTLE("Turtle");
 
         private final String name;
 
-        Foods(String name) {
+        Mobs(String name) {
             this.name = name;
         }
 
@@ -120,4 +96,5 @@ public class CmdListFoods implements TabExecutor {
             return name;
         }
     }
+
 }

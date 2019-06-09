@@ -2,6 +2,7 @@ package net.pl3x.bukkit.basiccommands;
 
 import net.pl3x.bukkit.basiccommands.command.CmdBasicCommands;
 import net.pl3x.bukkit.basiccommands.command.CmdListBiomes;
+import net.pl3x.bukkit.basiccommands.command.CmdListBreeds;
 import net.pl3x.bukkit.basiccommands.command.CmdListFoods;
 import net.pl3x.bukkit.basiccommands.command.CmdListMobs;
 import net.pl3x.bukkit.basiccommands.command.CmdTPSBar;
@@ -27,6 +28,7 @@ public class BasicCommands extends JavaPlugin {
 
         getCommand("basiccommands").setExecutor(new CmdBasicCommands(this));
         getCommand("listbiomes").setExecutor(new CmdListBiomes());
+        getCommand("listbreeds").setExecutor(new CmdListBreeds());
         getCommand("listfoods").setExecutor(new CmdListFoods());
         getCommand("listmobs").setExecutor(new CmdListMobs());
         getCommand("tpsbar").setExecutor(new CmdTPSBar());
