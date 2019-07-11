@@ -15,7 +15,7 @@ public class TPSBarTask extends BukkitRunnable {
     private final BossBar bossbar;
 
     public TPSBarTask(BasicCommands plugin) {
-        NamespacedKey key = new NamespacedKey(plugin, "tpsbar");
+        NamespacedKey key = getKey();
         BossBar bossbar = plugin.getServer().getBossBar(key);
         if (bossbar == null) {
             bossbar = plugin.getServer().createBossBar(key, "TPS: 20.0", BarColor.RED, BarStyle.SEGMENTED_20);
@@ -77,5 +77,17 @@ public class TPSBarTask extends BukkitRunnable {
             bossbar.addPlayer(player);
             run();
         }
+    }
+
+    @Override
+    public void cancel() {
+        super.cancel();
+        bossbar.setVisible(false);
+        bossbar.removeAll();
+        plugin.getServer().removeBossBar(getKey());
+    }
+
+    private NamespacedKey getKey() {
+        return new NamespacedKey(plugin, "tpsbar");
     }
 }
