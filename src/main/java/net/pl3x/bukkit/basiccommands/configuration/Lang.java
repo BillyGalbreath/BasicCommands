@@ -7,7 +7,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.entity.Player;
 
 import java.io.File;
 import java.io.IOException;
@@ -43,8 +42,7 @@ public class Lang {
     /**
      * Reload the language file
      */
-    public static void reload() {
-        BasicCommands plugin = BasicCommands.getInstance();
+    public static void reload(BasicCommands plugin) {
         File configFile = new File(plugin.getDataFolder(), Config.LANGUAGE_FILE);
         config = new YamlConfiguration();
         try {
@@ -83,33 +81,6 @@ public class Lang {
         if (recipient != null) {
             for (String part : colorize(message).split("\n")) {
                 recipient.sendMessage(part);
-            }
-        }
-    }
-
-    /**
-     * Broadcast a message to server
-     *
-     * @param message Message to broadcast
-     */
-    public static void broadcast(String message) {
-        for (String part : colorize(message).split("\n")) {
-            Bukkit.getOnlinePlayers().forEach(recipient -> recipient.sendMessage(part));
-            Bukkit.getConsoleSender().sendMessage(part);
-        }
-    }
-
-    /**
-     * Sends a message above a player's action bar
-     *
-     * @param player  Recipient of message
-     * @param message Message to send
-     */
-    public static void sendActionBar(Player player, String message) {
-        if (player != null && player.isOnline()) {
-            message = colorize(message);
-            if (!message.isEmpty()) {
-                player.sendActionBar(message);
             }
         }
     }

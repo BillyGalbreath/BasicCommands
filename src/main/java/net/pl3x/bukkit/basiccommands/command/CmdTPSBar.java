@@ -1,7 +1,7 @@
 package net.pl3x.bukkit.basiccommands.command;
 
+import net.pl3x.bukkit.basiccommands.BasicCommands;
 import net.pl3x.bukkit.basiccommands.configuration.Lang;
-import net.pl3x.bukkit.basiccommands.task.TPSBarTask;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
@@ -11,6 +11,12 @@ import java.util.Collections;
 import java.util.List;
 
 public class CmdTPSBar implements TabExecutor {
+    private final BasicCommands plugin;
+
+    public CmdTPSBar(BasicCommands plugin) {
+        this.plugin = plugin;
+    }
+
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
         return Collections.emptyList();
@@ -28,7 +34,7 @@ public class CmdTPSBar implements TabExecutor {
             return true;
         }
 
-        TPSBarTask.togglePlayer((Player) sender);
+        plugin.getTPSBarTask().togglePlayer((Player) sender);
         return true;
     }
 }

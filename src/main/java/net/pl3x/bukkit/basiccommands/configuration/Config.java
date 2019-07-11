@@ -22,8 +22,7 @@ public class Config {
     /**
      * Reload the configuration file
      */
-    public static void reload() {
-        BasicCommands plugin = BasicCommands.getInstance();
+    public static void reload(BasicCommands plugin) {
         File configFile = new File(plugin.getDataFolder(), "config.yml");
         config = new YamlConfiguration();
         try {

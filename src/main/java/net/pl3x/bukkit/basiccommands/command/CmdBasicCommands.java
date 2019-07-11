@@ -35,8 +35,8 @@ public class CmdBasicCommands implements TabExecutor {
         String response = "&d" + plugin.getName() + " v" + plugin.getDescription().getVersion();
 
         if (args.length > 0 && args[0].equalsIgnoreCase("reload")) {
-            Config.reload();
-            Lang.reload();
+            Config.reload(plugin);
+            Lang.reload(plugin);
 
             response += " reloaded";
         }
