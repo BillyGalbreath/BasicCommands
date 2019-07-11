@@ -15,6 +15,8 @@ public class TPSBarTask extends BukkitRunnable {
     private final BossBar bossbar;
 
     public TPSBarTask(BasicCommands plugin) {
+        this.plugin = plugin;
+
         NamespacedKey key = getKey();
         BossBar bossbar = plugin.getServer().getBossBar(key);
         if (bossbar == null) {
@@ -23,7 +25,6 @@ public class TPSBarTask extends BukkitRunnable {
         bossbar.setVisible(true);
         bossbar.setProgress(1.0D);
 
-        this.plugin = plugin;
         this.bossbar = bossbar;
     }
 
