@@ -8,6 +8,7 @@ api-version: "1.13"
 commands:
   basiccommands:
     description: Reload the configs
+    permission: command.basiccommands
     usage: /<command> (reload)
     aliases:
       - basiccmds
@@ -17,26 +18,31 @@ commands:
       - bc
   listbiomes:
     description: See visited biomes
+    permission: command.listbiomes
     usage: /<command>
     aliases:
       - biomes
   listbreeds:
     description: See animals bred
+    permission: command.listbreeds
     usage: /<command>
     aliases:
       - breeds
   listfoods:
     description: See foods eaten
+    permission: command.listfoods
     usage: /<command>
     aliases:
       - foods
   listmobs:
     description: See mobs killed
+    permission: command.listmobs
     usage: /<command>
     aliases:
       - mobs
   tpsbar:
     description: Toggle tps output above your hotbar
+    permission: command.tpsbar
     usage: /<command>
 
 permissions:
