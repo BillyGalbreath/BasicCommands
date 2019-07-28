@@ -35,6 +35,11 @@ public class TPSBarTask extends BukkitRunnable {
         }
 
         double tps = plugin.getServer().getTPS()[0];
+        if (tps > 20.0D) {
+            tps = 20.0D;
+        } else if (tps < 0.0D) {
+            tps = 0.0D;
+        }
 
         bossbar.setVisible(true);
         bossbar.setProgress(getProgress(tps));
